@@ -26,7 +26,7 @@ public class Main extends Application {
 	Scene scene = new Scene(root, 400, 400);
 	Circle circle = new Circle(10);
 	@Override
-	public void start(Stage stage) {
+	public void start(Stage stage) { 
 		try {
 			
 			initScene(stage);
