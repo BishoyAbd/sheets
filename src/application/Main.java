@@ -96,29 +96,38 @@ public class Main extends Application {
 	}
 
 	public Path drawSinPath(Group root) {
-		int xBase = 200;
-		int top = 200;
+		//start to draw from here
+		int top = 50;
+		int xStart = 200;
+		int yStart = 100-top;
 		int yScale = 100;
-		int xAxis = 720;
-
-		int yBase = top + yScale;
+		
+		
+		//the length of x axis (both sides);
+		int xAxis =720;
+		int yAxis=720;
+		int yEnd=yStart+yAxis;
+		int xEnd=xStart+xAxis;
+		int originX=(xStart+xEnd)/2;
+		int originY=(yStart+yAxis)/2;
+		
 		int x, y;
          //yAxis
-		root.getChildren().add(new Line(xBase+xAxis/2, top, xBase+xAxis/2, top + 2 * yScale));
+		root.getChildren().add(new Line(originX, yStart,originX, yEnd));
 		 //XAxis
-		root.getChildren().add(new Line(xBase, yBase, xBase + xAxis, yBase));
+		root.getChildren().add(new Line(xStart, originY, xEnd, originY));
 
 		MoveTo moveTo = null;
 		LineTo lineTo = null;
 		Path path = new Path();
 		
-		moveTo = new MoveTo(xBase , top + yScale - Math.sin(Math.toRadians(0))* yScale);
+		moveTo = new MoveTo(xStart , originY);//(x(leftmost),0)//the drawing will start from the left side (this is the start point of the path)
 
 		path.getElements().add(moveTo);
-		for (int i = 0; i <= xAxis; i++) {
+		for (int i = 0; i < xAxis; i++) {
 			
-			x = xBase + i;
-			y = (int) (yBase - Math.sin(Math.toRadians(i)) * yScale);
+			x = xStart + i;
+			y = (int) (originY - Math.sin(Math.toRadians(i)) * yScale);
 
 			lineTo = new LineTo(x, y);
 
