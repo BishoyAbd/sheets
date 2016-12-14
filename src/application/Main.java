@@ -96,25 +96,27 @@ public class Main extends Application {
 	}
 
 	public Path drawSinPath(Group root) {
-		int xBase = 10;
-		int top = 10;
+		int xBase = 200;
+		int top = 200;
 		int yScale = 100;
-		int xAxis = 360;
+		int xAxis = 720;
 
 		int yBase = top + yScale;
 		int x, y;
-
-		root.getChildren().add(new Line(xBase, top, xBase, top + 2 * yScale));
+         //yAxis
+		root.getChildren().add(new Line(xBase+xAxis/2, top, xBase+xAxis/2, top + 2 * yScale));
+		 //XAxis
 		root.getChildren().add(new Line(xBase, yBase, xBase + xAxis, yBase));
 
 		MoveTo moveTo = null;
 		LineTo lineTo = null;
 		Path path = new Path();
 		
-		moveTo = new MoveTo(10 , top + yScale - Math.sin(Math.toRadians(0))* yScale);
+		moveTo = new MoveTo(xBase , top + yScale - Math.sin(Math.toRadians(0))* yScale);
 
 		path.getElements().add(moveTo);
-		for (int i = 0; i < xAxis; i++) {
+		for (int i = 0; i <= xAxis; i++) {
+			
 			x = xBase + i;
 			y = (int) (yBase - Math.sin(Math.toRadians(i)) * yScale);
 
