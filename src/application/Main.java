@@ -112,9 +112,9 @@ public class Main extends Application {
 		int originY=(yStart+yAxis)/2;
 		
 		int x, y;
-         //yAxis
+          //yAxis
 		root.getChildren().add(new Line(originX, yStart,originX, yEnd));
-		 //XAxis
+		  //XAxis
 		root.getChildren().add(new Line(xStart, originY, xEnd, originY));
 
 		MoveTo moveTo = null;
@@ -127,7 +127,7 @@ public class Main extends Application {
 		for (int i = 0; i < xAxis; i++) {
 			
 			x = xStart + i;
-			y = (int) ( originY +Math.sin(Math.toRadians(i)) * yScale);
+			y = (int) ( originY -Math.sin(x*.1) * yScale);
 
 			lineTo = new LineTo(x, y);
 
