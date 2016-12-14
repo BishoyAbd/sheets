@@ -30,7 +30,7 @@ public class Main extends Application {
 	BorderPane root = new BorderPane();
 	Group g = new Group();
 	Scene scene = new Scene(root, 400, 400);
-	Circle circle = new Circle(10);
+	Circle circle = new Circle(30);
 	@Override
 	public void start(Stage stage) { 
 		try {
@@ -127,7 +127,7 @@ public class Main extends Application {
 		for (int i = 0; i < xAxis; i++) {
 			
 			x = xStart + i;
-			y = (int) (originY - Math.sin(Math.toRadians(i)) * yScale);
+			y = (int) ( originY +Math.sin(Math.toRadians(i)) * yScale);
 
 			lineTo = new LineTo(x, y);
 
